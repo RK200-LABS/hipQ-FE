@@ -11,7 +11,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false); // 모바일 메뉴 상태
 
   return (
-    <header className="w-full h-[80px] fixed top-0 left-0 right-0 z-50 px-6 shadow-md flex items-center justify-between bg-black text-white">
+    <header className="w-full h-[80px] fixed top-0 left-0 right-0 z-50 px-6 shadow-md flex items-center justify-between bg-white text-black">
       {/* 로고 + 추가 텍스트 (왼쪽 정렬, 클릭 시 홈으로 이동) */}
       <div
         className="flex items-center cursor-pointer"
@@ -52,7 +52,7 @@ export default function Header() {
 
       {/* 모바일 메뉴 (가운데 정렬) */}
       {isOpen && (
-        <nav className="absolute top-[90px] left-0 w-full p-6 flex flex-col items-center space-y-2 md:hidden text-xl font-extrabold bg-black text-white">
+        <nav className="absolute top-[90px] left-0 w-full p-6 flex flex-col items-center space-y-2 md:hidden text-xl font-extrabold bg-white text-black">
           <div
             className="w-full flex justify-center items-center py-3 cursor-pointer hover:text-[#FF4F59] transition-all duration-300 ease-in-out"
             onClick={() => router.push("/")}

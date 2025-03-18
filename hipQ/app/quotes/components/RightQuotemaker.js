@@ -27,7 +27,7 @@ export default function RightQuotemaker() {
         setProgress((oldProgress) => {
           if (oldProgress >= 100) {
             clearInterval(progressInterval);
-            setChapter(3); // 챕터 3으로 이동
+            setChapter(3);
             setLoading(false);
             return 100;
           }
@@ -38,7 +38,6 @@ export default function RightQuotemaker() {
   };
 
   const handleShare = () => {
-    console.log("Share 버튼 클릭됨");
     if (navigator.clipboard) {
       navigator.clipboard
         .writeText("http://localhost:3000/quotes")
@@ -52,29 +51,38 @@ export default function RightQuotemaker() {
           setTimeout(() => setShowAlert(false), 3000);
         });
     } else {
-      // navigator.clipboard 지원하지 않는 경우
       setShowAlert(true);
       setTimeout(() => setShowAlert(false), 3000);
     }
   };
 
   return (
-    <div className="w-[500px] h-[800px] bg-black text-white p-6 border border-[#222222] rounded-[15px] flex flex-col items-center justify-between transition-all duration-500 relative">
+    <div className="w-[500px] h-[800px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl">
       {chapter === 1 ? (
         <>
-          <p className="text-xl font-semibold text-center mt-6 whitespace-pre-line">
+          <p className="text-2xl font-light text-center mt-8 whitespace-pre-line leading-relaxed text-[#333333]">
             의미있는 명언으로{"\n"}하루를 시작하는건 어떨까요?
           </p>
           <div className="flex flex-col items-center mb-20">
-            <Image src="/assets/logo.png" alt="logo" width={200} height={200} />
-            <h2 className="text-3xl font-bold p-2 tracking-wider">
-              <span className="text-white">Daily</span>
-              <span className="text-[#FF4F59]">Quote</span>
+            <div className="relative w-[200px] h-[200px] perspective-[1000px]">
+              <div className="book-container absolute w-full h-full transform-style-3d animate-float">
+                <div className="book-side absolute w-[50px] h-full bg-[#FF4F59] origin-left transform rotate-y-[90deg] translate-x-[25px] shadow-lg"></div>
+                <div className="book-cover absolute w-full h-full bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] shadow-xl transform transition-transform duration-1000 hover:rotate-y-[-30deg] rounded-r-lg">
+                  <div className="absolute inset-[10px] border-2 border-white/30 rounded-lg"></div>
+                  <div className="absolute inset-0 bg-[url('/assets/book-pattern.png')] opacity-10"></div>
+                  <div className="flex items-center justify-center h-full">
+                    <span className="text-2xl font-bold text-white">DQ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 className="text-4xl font-bold p-2 tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
+              Daily Quote
             </h2>
-            <p className="text-sm text-[#697077] mt-1">Edited by hipster__egg</p>
+            <p className="text-sm text-[#666666] mt-2">Edited by hipster__egg</p>
           </div>
           <button
-            className="bg-[#FF4F59] text-white text-lg font-medium py-4 w-full rounded-lg hover:opacity-80 transition"
+            className="bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium py-4 w-full rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl"
             onClick={() => setChapter(2)}
           >
             시작하기
@@ -86,25 +94,31 @@ export default function RightQuotemaker() {
             fadeIn ? "opacity-100" : "opacity-0"
           }`}
         >
-          {/* 로고 및 제목 */}
-          <div className="absolute top-6 left-6 flex items-center">
-            <Image src="/assets/logo.png" alt="logo" width={50} height={50} />
-            <h2 className="text-2xl font-bold ml-2 tracking-wider">
-              <span className="text-white">Daily</span>
-              <span className="text-[#FF4F59]">Quote</span>
+          <div className="absolute top-8 left-8 flex items-center">
+            <div className="relative w-[50px] h-[50px] perspective-[1000px]">
+              <div className="book-container absolute w-full h-full transform-style-3d animate-float-small">
+                <div className="book-side absolute w-[12px] h-full bg-[#FF4F59] origin-left transform rotate-y-[90deg] translate-x-[6px] shadow-lg"></div>
+                <div className="book-cover absolute w-full h-full bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] shadow-xl transform transition-transform duration-1000 hover:rotate-y-[-30deg] rounded-r-sm">
+                  <div className="absolute inset-[4px] border border-white/30 rounded-sm"></div>
+                  <div className="absolute inset-0 bg-[url('/assets/book-pattern.png')] opacity-10"></div>
+                  <div className="flex items-center justify-center h-full">
+                    <span className="text-sm font-bold text-white">DQ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 className="text-2xl font-bold ml-3 tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
+              Daily Quote
             </h2>
           </div>
-          {/* 챕터 3에서 공유하기 버튼 */}
           {chapter === 3 && (
-            <div className="absolute top-6 right-6 z-50">
+            <div className="absolute top-8 right-8 z-50">
               <button
                 onClick={handleShare}
-                className="bg-black flex items-center justify-center p-2 rounded-full cursor-pointer"
+                className="bg-white flex items-center justify-center p-2 rounded-full cursor-pointer hover:bg-[#f5f5f5] transition-all duration-300 shadow-md"
                 style={{ width: "40px", height: "40px" }}
               >
-                <div className="bg-black p-1 rounded-full">
-                  <Share2 size={20} />
-                </div>
+                <Share2 size={20} className="text-[#333333]" />
               </button>
             </div>
           )}
@@ -112,19 +126,29 @@ export default function RightQuotemaker() {
             <>
               {!loading && (
                 <>
-                  <div className="flex flex-col items-center mb-4">
-                    <Image src="/assets/logo.png" alt="logo" width={200} height={200} />
-                    <h2 className="text-3xl font-bold p-2 tracking-wider">
-                      <span className="text-white">Daily</span>
-                      <span className="text-[#FF4F59]">Quote</span>
+                  <div className="flex flex-col items-center mb-6">
+                    <div className="relative w-[200px] h-[200px] perspective-[1000px]">
+                      <div className="book-container absolute w-full h-full transform-style-3d animate-float">
+                        <div className="book-side absolute w-[40px] h-full bg-[#FF4F59] origin-left transform rotate-y-[90deg] translate-x-[20px] shadow-lg"></div>
+                        <div className="book-cover absolute w-full h-full bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] shadow-xl transform transition-transform duration-1000 hover:rotate-y-[-30deg] rounded-r-lg">
+                          <div className="absolute inset-[10px] border-2 border-white/30 rounded-lg"></div>
+                          <div className="absolute inset-0 bg-[url('/assets/book-pattern.png')] opacity-10"></div>
+                          <div className="flex items-center justify-center h-full">
+                            <span className="text-2xl font-bold text-white">DQ</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h2 className="text-4xl font-bold p-2 tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
+                      Daily Quote
                     </h2>
                   </div>
-                  <p className="text-xl font-semibold text-center mt-6 whitespace-pre-line">
+                  <p className="text-2xl font-light text-center mt-6 whitespace-pre-line leading-relaxed text-[#333333]">
                     안녕하세요!{"\n"}당신을 어떻게 불러드릴까요?
                   </p>
                   <input
                     type="text"
-                    className="mt-4 p-2 border border-gray-500 rounded-lg text-white w-[263px]"
+                    className="mt-6 p-3 border border-[#e0e0e0] rounded-xl text-[#333333] w-[300px] bg-white focus:outline-none focus:border-[#FF4F59] transition-all duration-300"
                     placeholder="이름 혹은 닉네임"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -133,20 +157,20 @@ export default function RightQuotemaker() {
               )}
               {loading && (
                 <div className="flex flex-col items-center">
-                  <p className="text-3xl font-bold text-center mb-3 whitespace-pre-line">
+                  <p className="text-3xl font-light text-center mb-6 whitespace-pre-line leading-relaxed text-[#333333]">
                     {name ? `${name}님의\n오늘의 명언 확인중..` : "오늘의 명언 확인중.."}
                   </p>
-                  <div className="w-[197px] bg-[#697077] rounded-full h-2 overflow-hidden">
+                  <div className="w-[250px] bg-[#e0e0e0] rounded-full h-2 overflow-hidden">
                     <div
-                      className="h-full bg-[#FF4F59] transition-all duration-300"
+                      className="h-full bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] transition-all duration-300"
                       style={{ width: `${progress}%` }}
                     />
                   </div>
                 </div>
               )}
               <button
-                className={`absolute bottom-6 bg-[#FF4F59] text-white text-lg font-medium py-2 rounded-lg w-[263px] transition ${
-                  name && !loading ? "hover:opacity-80" : "opacity-50 cursor-not-allowed"
+                className={`absolute bottom-8 bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium py-3 rounded-xl w-[300px] transition-all duration-300 shadow-lg hover:shadow-xl ${
+                  name && !loading ? "hover:opacity-90" : "opacity-50 cursor-not-allowed"
                 }`}
                 onClick={handleNext}
                 disabled={!name || loading}
@@ -155,45 +179,42 @@ export default function RightQuotemaker() {
               </button>
             </>
           ) : (
-            // 챕터 3 (이름을 반영하여 표시)
             <div className="relative flex flex-col items-center justify-start flex-grow w-full">
-              <p className="text-xl font-semibold text-center mt-20 whitespace-pre-line">
+              <p className="text-2xl font-light text-center mt-20 whitespace-pre-line leading-relaxed text-[#333333]">
                 {name}님을 위한 오늘의 명언
               </p>
               <div className="flex flex-col items-center mb-14 justify-center flex-grow w-full">
-                <h2 className="text-3xl font-bold text-center">
+                <h2 className="text-4xl font-light text-center leading-relaxed text-[#333333]">
                   "성공은 작은 노력이 반복된 결과입니다."
                 </h2>
-                <p className="text-md text-center mt-2">- 헤르만 헤세</p>
+                <p className="text-lg text-center mt-4 text-[#FF4F59]">- 헤르만 헤세</p>
               </div>
-              {/* 하단에 고정된 요소 */}
-              <div className="absolute bottom-6">
-                <div className="w-[400px] h-[250px] bg-[#222222] rounded-[15px] flex flex-col items-center justify-center p-4">
-                  <p className="text-white text-lg mb-4">헤르만 헤세가 쓴 책</p>
-                    <div className="flex flex-row items-center space-x-4">
-                        <div className="flex flex-col items-center">
-                            <div className="w-20 h-28 bg-gray-700 rounded-r-md"></div>
-                            <p className="text-white mt-2 text-sm">데미안</p>
+              <div className="absolute bottom-8">
+                <div className="w-[400px] h-[250px] bg-white rounded-[20px] flex flex-col items-center justify-center p-6 shadow-xl border border-[#e0e0e0]">
+                  <p className="text-[#333333] text-xl mb-6 font-light">헤르만 헤세가 쓴 책</p>
+                    <div className="flex flex-row items-center space-x-6">
+                        <div className="flex flex-col items-center group">
+                            <div className="w-24 h-32 bg-gradient-to-b from-white to-[#f5f5f5] rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 border border-[#e0e0e0]"></div>
+                            <p className="text-[#333333] mt-3 text-sm font-light">데미안</p>
                         </div>
-                        <div className="flex flex-col items-center">
-                            <div className="w-20 h-28 bg-gray-700 rounded-r-md"></div>
-                            <p className="text-white mt-2 text-sm">데미안</p>
+                        <div className="flex flex-col items-center group">
+                            <div className="w-24 h-32 bg-gradient-to-b from-white to-[#f5f5f5] rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 border border-[#e0e0e0]"></div>
+                            <p className="text-[#333333] mt-3 text-sm font-light">데미안</p>
                         </div>
-                        <div className="flex flex-col items-center">
-                            <div className="w-20 h-28 bg-gray-700 rounded-r-md"></div>
-                            <p className="text-white mt-2 text-sm">데미안</p>
+                        <div className="flex flex-col items-center group">
+                            <div className="w-24 h-32 bg-gradient-to-b from-white to-[#f5f5f5] rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 border border-[#e0e0e0]"></div>
+                            <p className="text-[#333333] mt-3 text-sm font-light">데미안</p>
                         </div>
                     </div>
                 </div>
               </div>
             </div>
           )}
-          {/* Alert 컴포넌트: 화면 상단 중앙에 표시 */}
           {showAlert && (
             <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50">
-              <Alert className="bg-green-200">
-                <Copy className="h-4 w-4" />
-                <AlertDescription className="text-green-600">
+              <Alert className="bg-white border-[#e0e0e0] shadow-xl">
+                <Copy className="h-4 w-4 text-[#FF4F59]" />
+                <AlertDescription className="text-[#333333]">
                   클립보드에 복사되었습니다!
                 </AlertDescription>
               </Alert>
@@ -201,6 +222,28 @@ export default function RightQuotemaker() {
           )}
         </div>
       )}
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate3d(0, 1, 0, 20deg); }
+          50% { transform: translateY(-10px) rotate3d(0, 1, 0, 20deg); }
+        }
+        @keyframes float-small {
+          0%, 100% { transform: translateY(0px) rotate3d(0, 1, 0, 20deg); }
+          50% { transform: translateY(-3px) rotate3d(0, 1, 0, 20deg); }
+        }
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        .animate-float-small {
+          animation: float-small 3s ease-in-out infinite;
+        }
+        .perspective-[1000px] {
+          perspective: 1000px;
+        }
+        .transform-style-3d {
+          transform-style: preserve-3d;
+        }
+      `}</style>
     </div>
   );
 }

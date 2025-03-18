@@ -5,7 +5,7 @@ import RightContent from "./components/RightContent";
 
 export default function Quotes() {
   return (
-    <div className="bg-black min-h-screen flex flex-col">
+    <div className="bg-white min-h-screen flex flex-col">
       <Header /> {/* 헤더 추가 */}
       <div className="flex flex-1 pt-[80px] w-full">
         

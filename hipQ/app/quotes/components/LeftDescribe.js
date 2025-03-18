@@ -1,6 +1,6 @@
 export default function LeftDescribe() {
     return (
-        <div className="w-[526px] h-[280px] bg-[#222222] text-white p-6 rounded-lg flex flex-col justify-center">
+        <div className="w-[526px] h-[280px] bg-white text-black p-6 rounded-lg flex flex-col justify-center border border-gray-200">
             {/* 설명 내용 */}
             <h3 className="text-[10px] sm:text-[25px] font-blod text-[#FF313D] mb-5">설명</h3>
             <p className="text-lg mb-15">

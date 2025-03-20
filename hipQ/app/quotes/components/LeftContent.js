@@ -6,11 +6,11 @@ export default function LeftContent() {
     return (
         <div className="w-full max-w-[1200px] mx-auto p-6 overflow-y-auto max-h-[90vh] scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
             {/* 🔹 제목과 설명 (왼쪽 정렬) */}
-            <div className="w-full text-left mb-6">
+            <div className="flex flex-col ml-24 text-left mb-6">
                 <h2 className="text-[20px] sm:text-[25px] font-semibold text-[#FF313D]">
                     오늘의 명언
                 </h2>
-                <p className="text-[24px] sm:text-[28px] lg:text-[33px] font-black text-white mt-[10px]">
+                <p className="text-[24px] sm:text-[28px] lg:text-[33px] font-black text-black mt-[10px]">
                     NFC를 태그하여 오늘의 명언을 확인하세요
                 </p>
             </div>

@@ -18,8 +18,8 @@ export default function LeftCard() {
         <div className="relative w-full max-w-[250px] flex flex-col items-center justify-center md:max-w-none"> {/* ✅ 크기 변경 없음 */}
             
             {/* "키링 둘러보기" 문구를 중앙 상단에 배치 */}
-            <p className="absolute top-0 left-1/2 -translate-x-1/2 text-white text-lg sm:text-xl font-semibold mb-4">
-                NFC 키링 둘러보기
+            <p className="absolute top-0 left-1/2 -translate-x-1/2 text-black text-lg sm:text-xl font-semibold mb-4">
+                키링 둘러보기
             </p>
 
             <Carousel

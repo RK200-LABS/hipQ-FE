@@ -18,7 +18,7 @@ export default function RightBook2() {
           style={{ transformStyle: 'preserve-3d', transformOrigin: 'left center' }}
         >
           <h1 className="relative top-6 inset-0 flex items-center justify-center text-white text-xl font-bold">
-            Daily Quote
+            Daily Sentence
           </h1>
           <small className="absolute bottom-1 right-1 text-white text-xs">
             hipster__egg

@@ -48,7 +48,7 @@ export default function LeftIphone() {
 
                     {/* hipQ 로고 텍스트 */}
                     <h1 className="text-black text-3xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
-                        Daily Quote
+                        Daily Sentence
                     </h1>
 
                     {/* 안내 문구 */}

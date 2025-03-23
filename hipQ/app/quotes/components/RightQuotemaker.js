@@ -8,6 +8,7 @@ import RightBook1 from "./RightBook1";
 import RightBook2 from "./RightBook2";
 import RightLoading from "./RightLoading";
 import RightBook4 from "./RightBook4";
+import RightBookShelf from "./RightBookShelf";
 
 export default function RightQuotemaker() {
   const [chapter, setChapter] = useState(1);
@@ -80,7 +81,7 @@ export default function RightQuotemaker() {
             </p>
           </div>
           <div className="flex justify-center items-center flex-grow">
-            <RightBook1 animate={animateBook} confirmed={bookConfirmed} />
+            <RightBookShelf />
           </div>
           <button
             className="bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium py-4 w-full rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -98,10 +99,10 @@ export default function RightQuotemaker() {
         >
           <div className="absolute top-4 left-8 flex items-center">
             <div className="w-[40px] h-[60px] bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] rounded-tr-sm rounded-br-sm flex items-center justify-center text-white font-bold">
-              DQ
+              DS
             </div>
             <h2 className="text-2xl font-bold ml-3 tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
-              Daily Quote
+              Daily Sentence
             </h2>
           </div>
 
@@ -153,10 +154,10 @@ export default function RightQuotemaker() {
         >
           <div className="absolute top-4 left-8 flex items-center">
             <div className="w-[40px] h-[60px] bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] rounded-tr-sm rounded-br-sm flex items-center justify-center text-white font-bold">
-              DQ
+              DS
             </div>
             <h2 className="text-2xl font-bold ml-3 tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
-              Daily Quote
+              Daily Sentence
             </h2>
           </div>
 
@@ -167,7 +168,7 @@ export default function RightQuotemaker() {
           <div className="relative flex-grow w-full">
             <div
               className="absolute inset-x-0 flex items-center justify-center"
-              style={{ top: "50px" }}
+              style={{ top: "30px" }}
             >
               <RightBook4 />
             </div>
@@ -175,10 +176,10 @@ export default function RightQuotemaker() {
           <div className="absolute bottom-[-6]">
             <div className="max-w-[350px] w-full h-auto bg-transparent rounded-[20px] flex flex-col items-center justify-center p-6">
               <p className="text-[#333333] text-xl mb-2 font-light">
-                헤르만 헤세가 쓴 책
+                헤르만 헤세의 대표작                 {/* 작가 이름 */} 
               </p>
-              <div className="flex flex-row items-center space-x-6 overflow-x-auto">
-                {["데미안", "싯다르타", "유리알 유희"].map((book, index) => (
+              <div className="flex flex-row items-center space-x-6 overflow-x-auto">  {/* 작품명 */} 
+                {["데미안", "싯다르타", "유리알 유희"].map((book, index) => (             
                   <div key={index} className="flex flex-col items-center group">
                     <div className="w-24 h-32 bg-gradient-to-b from-white to-[#f5f5f5] rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300 border border-[#e0e0e0]"></div>
                     <p className="text-[#333333] mt-3 text-sm font-light">{book}</p>
@@ -187,7 +188,7 @@ export default function RightQuotemaker() {
               </div>
             </div>
           </div>
-          <div className="absolute top-8 right-8 z-50">
+          <div className="absolute top-1 right-1 z-50">
             <button
               onClick={handleShare}
               className="bg-white flex items-center justify-center p-2 rounded-full cursor-pointer hover:bg-[#f5f5f5] transition-all duration-300 shadow-md"

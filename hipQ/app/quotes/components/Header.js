@@ -30,7 +30,7 @@ export default function Header() {
           큐레이션
         </a>
         <Link href="/quotes" className="text-white hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
-          오늘의 명언
+          하루, 한 글
         </Link>
       </nav>
 
@@ -63,7 +63,7 @@ export default function Header() {
             className="w-full flex justify-center items-center py-3 cursor-pointer hover:text-[#FF4F59] transition-all duration-300 ease-in-out"
             onClick={() => router.push("/quotes")}
           >
-            <a className="pointer-events-none">오늘의 명언</a>
+            <a className="pointer-events-none">하루, 한 글</a>
           </div>
           <div
             className="w-full flex justify-center items-center py-3 cursor-pointer hover:text-[#FF4F59] transition-all duration-300 ease-in-out"

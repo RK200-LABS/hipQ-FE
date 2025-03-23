@@ -53,7 +53,7 @@ export default function RightBook3({ animate, isComplete }) {
           {/* isComplete가 false일 때만 렌더링 */}
           {!isComplete && (
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <h1 className="text-white text-xl font-bold">Daily Quote</h1>
+              <h1 className="text-white text-xl font-bold">Daily Sentence</h1>
               <small className="text-white text-xs">hipster__egg</small>
             </div>
           )}

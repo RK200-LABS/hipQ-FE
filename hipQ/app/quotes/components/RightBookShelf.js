@@ -34,9 +34,9 @@ export default function RightBookShelf() {
     },
     {
       id: 3,
-      title: "1984",
-      author: "조지 오웰",
-      color: "bg-red-500",
+      title: "데미안",
+      author: "헤르만 헤세",
+      color: "bg-[#FF4F59]",
       width: 42,
       height: 173,
       rotation: 0,
@@ -50,7 +50,7 @@ export default function RightBookShelf() {
       title: "호빗",
       author: "J.R.R. 톨킨",
       color: "bg-yellow-500",
-      width: 53,
+      width: 53,  
       height: 175,
       rotation: -12,
       offsetX: 0,
@@ -97,21 +97,25 @@ export default function RightBookShelf() {
                   {/* Book title positioned properly in center */}
                   <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
                     <div
-                      className="text-white font-medium text-base text-center"
+                      className="text-white text-sm text-center"
                       style={{
                         writingMode: "vertical-lr",
+                        textOrientation: "upright",
                         textShadow: "0px 0px 2px rgba(0,0,0,0.5)",
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: `translate(-50%, -50%) rotate(${books[3].rotation}deg)`,
-                        transformOrigin: "center",
-                        width: "80%",
+                        transform: "translate(0, 0)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: "100%",
+                        width: "100%",
+                        whiteSpace: "nowrap",
                       }}
                     >
-                      {books.title}
+                      {book.title}
                     </div>
                   </div>
+
+
 
                   <div className="h-full flex flex-col justify-between p-1 pointer-events-none">
                     <div className="w-full h-[1px] bg-white/20"></div>
@@ -120,10 +124,18 @@ export default function RightBookShelf() {
                   </div>
                 </div>
               </TooltipTrigger>
-              <TooltipContent side="top">
-                <p className="font-medium">{book.title}</p>
-                <p className="text-xs text-muted-foreground">{book.author}</p>
+              <TooltipContent
+                side="top"
+                className="border"
+                style={{
+                  backgroundColor: "white",
+                  borderColor: "#697077",
+                }}
+              >
+                <p className="font-medium text-black">{book.title}</p>
+                <p className="text-xs" style={{ color: "#697077" }}>{book.author}</p>
               </TooltipContent>
+
             </Tooltip>
           ))}
 
@@ -142,23 +154,26 @@ export default function RightBookShelf() {
                 }}
               >
                 {/* Book title positioned slightly higher and to the right */}
-                <div className="absolute top-[-6px] right-[-4px] flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
                   <div
-                    className="text-white font-medium text-base text-center"
+                    className="text-white text-sm text-center"
                     style={{
                       writingMode: "vertical-lr",
+                      textOrientation: "upright",
                       textShadow: "0px 0px 2px rgba(0,0,0,0.5)",
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: `translate(-50%, -50%) rotate(${books[3].rotation}deg)`,
+                      transform: "rotate(-6deg)", // 반시계 방향으로 약간 틀기
                       transformOrigin: "center",
-                      width: "80%",
+                      maxHeight: "100%",
+                      maxWidth: "100%",
+                      whiteSpace: "nowrap",
                     }}
                   >
                     {books[3].title}
                   </div>
                 </div>
+
+
+
                 <div className="h-full flex flex-col justify-between p-1 pointer-events-none">
                   <div className="w-full h-[1px] bg-white/20"></div>
                   <div className="w-full h-[1px] bg-white/20"></div>
@@ -166,15 +181,28 @@ export default function RightBookShelf() {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContent side="top">
-              <p className="font-medium">{books[3].title}</p>
-              <p className="text-xs text-muted-foreground">{books[3].author}</p>
+            <TooltipContent
+              side="top"
+              className="border"
+              style={{
+                backgroundColor: "white",
+                borderColor: "#697077",
+              }}
+            >
+              <p className="font-medium text-black">{books[3].title}</p>
+              <p className="text-xs" style={{ color: "#697077" }}>{books[3].author}</p>
             </TooltipContent>
+
           </Tooltip>
         </div>
 
         {/* Desk surface hint */}
-        <div className="absolute w-[340px] h-[10px] bottom-[-10px] left-[-20px] bg-[#d4c5b3] rounded-md opacity-50"></div>
+        <div className="absolute w-full h-[30px] bottom-0 bg-[#e0d2c0] rounded-md shadow-lg flex items-center justify-center">
+          <span className="text-sm font-semibold" style={{ color: "#652A0E" }}>
+            이달의 추천 책
+          </span>
+        </div>
+
       </div>
     </TooltipProvider>
   )

@@ -41,33 +41,58 @@ export default function LeftIphone() {
                     <Menu size={20} color="white" />
                 </div>
 
-                {/* 📌 추가된 입력 UI (화면 중앙) */}
-                <div className="flex flex-col items-center justify-center flex-grow px-6 mb-20 text-center">
-                    
-                    <Image src="/assets/logo.png" alt="logo" width={200} height={200} />
+                <div className="relative flex flex-col items-center justify-center flex-grow px-6 text-center">
 
-                    {/* hipQ 로고 텍스트 */}
-                    <h1 className="text-black text-3xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
+                    {/* 왼쪽 상단 로고 영역 */}
+                    <div className="absolute top-4 left-4 flex items-center space-x-2">
+                        {/* 책 모양 + DS */}
+                        <div className="w-[32px] h-[48px] bg-[#FF4F59] rounded-sm flex items-center justify-center">
+                        <span className="text-white text-[10px] font-bold">DS</span>
+                        </div>
+
+                        {/* Daily Sentence 텍스트 */}
+                        <h1 className="text-black text-xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
                         Daily Sentence
-                    </h1>
+                        </h1>
+                    </div>
+
+                    {/* 중앙에 배치된 큰 책 모양 요소 */}
+                    <div className="w-[150px] h-[225px] bg-[#FF4F59] rounded-md relative mt-20 shadow-md">
+
+                        {/* 상단 중앙 텍스트 */}
+                        <div className="absolute top-2 left-1/2 transform -translate-x-1/2">
+                            <span className="text-white text-[10px] font-semibold">Daily Sentence</span>
+                        </div>
+
+
+                        {/* 오른쪽 아래 텍스트 */}
+                        <div className="absolute bottom-2 right-2">
+                            <span className="text-white text-[10px]">hipster__egg</span>
+                        </div>
+
+                        </div>
+
 
                     {/* 안내 문구 */}
-                    <p className="text-black text-lg sm:text-xl font-semibold mt-10">
-                        안녕하세요! <br /> 
-                        당신을 어떻게 불러드릴까요? <br />  
+                    <p className="text-black text-lg mt-10 sm:text-xl font-medium">
+                        안녕하세요! <br />
+                        당신을 어떻게 불러드릴까요? <br />
                     </p>
 
-                    {/* 입력창 모양의 div */}
+                    {/* 입력창 */}
                     <div className="mt-5 w-full max-w-[250px] h-12 bg-white text-black rounded-lg flex items-center justify-start px-4 border border-gray-200">
                         <span className="text-black">hipster__egg</span>
                     </div>
 
-                    {/* 📌 추가된 버튼 모양의 div */}
-                    <div className="mt-10 w-full max-w-[250px] h-12 bg-[#FF4F59] text-white font-semibold text-lg rounded-lg flex items-center justify-center cursor-pointer">
-                        다음
+                    {/* 버튼 */}
+                    <div
+                        className="mt-10 w-full max-w-[250px] h-12 text-white font-medium text-lg rounded-lg flex items-center justify-center cursor-pointer"
+                        style={{ backgroundColor: 'rgba(255, 79, 89, 0.5)' }}
+                    >
+                        오늘의 글 확인하기
+                    </div>
                     </div>
 
-                </div>
 
             </div>
         </div>

@@ -11,7 +11,7 @@ export default function LeftContent() {
                     하루, 한 글
                 </h2>
                 <p className="text-[24px] sm:text-[28px] lg:text-[33px] font-black text-black mt-[10px]">
-                    NFC를 태그하여 오늘의 명언을 확인하세요
+                    NFC를 태그하여 오늘의 글을 확인하세요
                 </p>
             </div>
 

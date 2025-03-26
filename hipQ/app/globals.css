@@ -79,7 +79,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --primary: white;
 }
+
+
 
 .dark {
   --background: oklch(1 0 0);
@@ -115,6 +118,18 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.439 0 0);
 }
+
+/* ShadCN Tooltip 화살표 추정 요소 강제 스타일 */
+.bg-primary.rounded-\[2px\].rotate-45 {
+  background-color: white !important;
+  box-sizing: border-box;
+  border: none !important;
+  border-right: 1px solid #697077 !important;
+  border-bottom: 1px solid #697077 !important;
+  margin-top: 1px;
+}
+
+
 
 @layer base {
   * {
@@ -153,3 +168,4 @@
     transform: rotateY(12deg);
   }
 }
+

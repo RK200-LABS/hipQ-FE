@@ -1,4 +1,4 @@
-import Header from "./components/Header";
+import Header from "./components/SubHeader";
 import LeftContent from "./components/LeftContent";
 import RightContent from "./components/RightContent";
 

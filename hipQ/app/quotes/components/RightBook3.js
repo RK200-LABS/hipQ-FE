@@ -50,8 +50,8 @@ export default function RightBook3({ animate, isComplete }) {
           className={`relative w-full h-full transition-transform transition-shadow duration-500 ease-in-out bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] rounded-r-[0.5em] ${animate ? "[transform:translateX(5rem)_rotateY(-160deg)_scale(1.1)]" : ""}`}
           style={{ transformStyle: "preserve-3d", transformOrigin: "left center", boxShadow }}
         >
-          {/* isComplete가 false일 때만 렌더링 */}
-          {!isComplete && (
+          {/* animate가 false이고, isComplete도 false일 때만 텍스트 표시 */}
+          {!animate && !isComplete && (
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <h1 className="text-white text-xl font-bold">Daily Sentence</h1>
               <small className="text-white text-xs">hipster__egg</small>
@@ -59,6 +59,7 @@ export default function RightBook3({ animate, isComplete }) {
           )}
         </div>
       </div>
+
       <style jsx>{`
         @keyframes float {
           0% { transform: translateY(0px); }

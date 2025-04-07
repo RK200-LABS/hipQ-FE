@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Header
- from "./components/MainHeader";
+import MainHeader from "./components/MainHeader";
+
 export default function Home() {
   return (
     <div>
-      <Header />
+      <MainHeader />
       <div className="h-[3000px]"></div>
     </div>
   );

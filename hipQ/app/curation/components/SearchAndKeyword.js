@@ -88,17 +88,8 @@ export default function TopKeyword() {
 
       {/* 키워드 선택 UI */}
       <div className="flex justify-center items-center">
-        <div
-          style={{
-            width: '669px',
-            height: '202px',
-            border: '1px solid #ccc',
-            padding: '16px',
-            boxSizing: 'border-box',
-          }}
-          className="flex flex-col items-center"
-        >
-          <h1 className="font-extrabold text-lg mb-4">키워드</h1>
+        <div className="w-[669px] h-[202px] border border-[#ccc] p-4 box-border flex flex-col items-center">
+          <h1 className="font-black text-2xl mb-4">키워드</h1>
           <div className="flex flex-col gap-3 items-center">
             {Object.entries(keywordData).map(([category, keywords]) => (
               <div key={category} className="flex gap-[12px] flex-wrap justify-center">
@@ -108,14 +99,8 @@ export default function TopKeyword() {
                     <button
                       key={keyword}
                       onClick={() => handleClick(category, keyword)}
-                      style={{
-                        height: '37px',
-                        backgroundColor: isSelected ? '#FF313D' : '#F1F1F3',
-                        color: isSelected ? '#FFFFFF' : '#000000',
-                        padding: '0 12px',
-                        borderRadius: '15px',
-                        fontSize: '14px',
-                      }}
+                      className={`h-[37px] px-3 rounded-[15px] text-sm transition-colors duration-300
+                        ${isSelected ? 'bg-[#FF313D] text-white' : 'bg-[#F1F1F3] text-black'}`}
                     >
                       {keyword}
                     </button>
@@ -126,6 +111,7 @@ export default function TopKeyword() {
           </div>
         </div>
       </div>
+
     </div>
   );
 }

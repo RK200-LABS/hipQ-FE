@@ -6,12 +6,12 @@ import { Menu, X } from "lucide-react"; // 아이콘 사용 (lucide-react 설치
 import Link from "next/link"; // Next.js 라우팅을 위한 Link 사용
 import { useRouter } from "next/navigation"; // Next.js 라우터 사용
 
-export default function SubHeader() {
+export default function Header() {
   const router = useRouter(); // 라우팅을 위한 useRouter 사용
   const [isOpen, setIsOpen] = useState(false); // 모바일 메뉴 상태
 
   return (
-    <header className="w-full h-[70px] fixed top-0 left-0 right-0 z-50 px-6 shadow-md flex items-center justify-between bg-black text-black">
+    <header className="w-full h-[80px] fixed top-0 left-0 right-0 z-50 px-6 shadow-md flex items-center justify-between bg-black text-black">
       {/* 로고 + 추가 텍스트 (왼쪽 정렬, 클릭 시 홈으로 이동) */}
       <div
         className="flex items-center cursor-pointer"
@@ -29,7 +29,7 @@ export default function SubHeader() {
         <Link href="/curation" className="text-white hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
           큐레이션
         </Link>
-        <Link href="/dailySentence" className="text-white hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
+        <Link href="/quotes" className="text-white hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
           하루, 한 글
         </Link>
       </nav>
@@ -61,7 +61,7 @@ export default function SubHeader() {
           </div>
           <div
             className="w-full flex justify-center items-center py-3 cursor-pointer hover:text-[#FF4F59] transition-all duration-300 ease-in-out"
-            onClick={() => router.push("/dailySentence")}
+            onClick={() => router.push("/quotes")}
           >
             <a className="pointer-events-none">하루, 한 글</a>
           </div>

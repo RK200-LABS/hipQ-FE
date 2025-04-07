@@ -29,7 +29,7 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full h-[90px] fixed top-0 left-0 px-6 shadow-md flex items-center justify-between ${
+      className={`w-full h-[70px] fixed top-0 left-0 px-6 shadow-md flex items-center justify-between ${
         isScrolled ? "bg-black text-white" : "bg-transparent text-black"
       }`}
     >
@@ -46,7 +46,7 @@ export default function Header() {
         <a href="#" className="hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
           큐레이션
         </a>
-        <Link href="/quotes" className="hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
+        <Link href="/dailySentence" className="hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
           하루, 한 글
         </Link>
       </nav>
@@ -84,7 +84,7 @@ export default function Header() {
           </div>
           <div
             className="w-full flex justify-center items-center py-3 cursor-pointer hover:text-[#FF4F59] transition-all duration-300 ease-in-out"
-            onClick={() => router.push("/quotes")}
+            onClick={() => router.push("/dailySentence")}
           >
             <a className="pointer-events-none">하루, 한 글</a>
           </div>

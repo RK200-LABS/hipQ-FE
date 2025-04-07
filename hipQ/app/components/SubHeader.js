@@ -29,7 +29,7 @@ export default function Header() {
         <Link href="/curation" className="text-white hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
           큐레이션
         </Link>
-        <Link href="/quotes" className="text-white hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
+        <Link href="/dailySentence" className="text-white hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
           하루, 한 글
         </Link>
       </nav>
@@ -61,7 +61,7 @@ export default function Header() {
           </div>
           <div
             className="w-full flex justify-center items-center py-3 cursor-pointer hover:text-[#FF4F59] transition-all duration-300 ease-in-out"
-            onClick={() => router.push("/quotes")}
+            onClick={() => router.push("/dailySentence")}
           >
             <a className="pointer-events-none">하루, 한 글</a>
           </div>

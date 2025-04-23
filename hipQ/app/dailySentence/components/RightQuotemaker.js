@@ -99,44 +99,47 @@ export default function RightQuotemaker() {
       id="quote-container"
       className="w-[500px] h-[700px] bg-gradient-to-b ... shadow-2xl"
     >
-      <div className="w-[500px] h-[800px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl">
+      <div className="w-[500px] h-[700px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl">
         {chapter === 1 ? (
           <div
-            className={`flex flex-col items-center justify-between h-full transition-opacity duration-1000 ${
-              fadeOut ? "opacity-0" : fadeIn ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <div className="absolute top-10 left-1/2 transform -translate-x-1/2">
-              <h2 className="text-2xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
-                하루, 한 글
-              </h2>
-            </div>
-            <p className="text-sm text-[#888888] mt-10">Daily Sentence</p>
-
-            <div className="relative w-full mt-20">
-              <p className="text-2xl font-light text-center mt-8 whitespace-pre-line leading-relaxed text-[#333333] relative">
-                의미있는 글로{"\n"}하루를 시작하는건 어떨까요?
-                <Info
-                  className="absolute top-[-10px] right-[-10px] w-5 h-5 text-gray-500 cursor-pointer block md:hidden"
-                  onClick={() => setIsModalOpen(true)}
-                />
-              </p>
-            </div>
-
-            <div className="flex justify-center items-center mt-8 mb-4">
-              <RightBookShelf />
-            </div>
-
-            <button
-              className="bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium py-4 w-full rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl"
-              onClick={handleStart}
-            >
-              시작하기
-            </button>
-
-
-            <InfoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+          className={`flex flex-col items-center justify-between h-full transition-opacity duration-1000 ${
+            fadeOut ? "opacity-0" : fadeIn ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {/* ✅ 제목 묶음 */}
+          <div className="flex flex-col items-center mt-4">
+            <h2 className="text-2xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
+              하루, 한 글
+            </h2>
+            <p className="text-sm text-[#888888] mt-1">Daily Sentence</p>
           </div>
+        
+          {/* ✅ 문장 - 간격 줄이기 위해 mt-6 정도로 설정 */}
+          <div className="relative w-full mt-6">
+            <p className="text-xl font-light text-center whitespace-pre-line leading-snug text-[#333333] relative">
+              의미있는 글로{"\n"}하루를 시작하는건 어떨까요?
+              <Info
+                className="absolute top-[-10px] right-[-10px] w-5 h-5 text-gray-500 cursor-pointer block md:hidden"
+                onClick={() => setIsModalOpen(true)}
+              />
+            </p>
+          </div>
+        
+          <div className="flex justify-center items-center mt-6 mb-4">
+            <RightBookShelf />
+          </div>
+        
+          <button
+            className="bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium py-4 w-full rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl"
+            onClick={handleStart}
+          >
+            시작하기
+          </button>
+        
+          <InfoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        </div>
+      
+        
         ) : chapter === 2 ? (
           <div
             className={`flex flex-col items-center justify-center flex-grow transition-opacity duration-1000 ${

@@ -46,6 +46,7 @@ export default function RightQuotemaker() {
       setShowLoading(true);
     }
   };
+  
 
   const handleShare = () => {
     if (navigator.clipboard) {
@@ -70,7 +71,7 @@ export default function RightQuotemaker() {
   const handleDownload = () => {
     const target = document.getElementById("quote-container");
     if (!target) return;
-
+  
     toPng(target, {
       cacheBust: true,
       pixelRatio: 2,
@@ -78,7 +79,11 @@ export default function RightQuotemaker() {
     })
       .then((dataUrl) => {
         const link = document.createElement("a");
-        link.download = "quote-image.png";
+        const today = new Date();
+        const month = String(today.getMonth() + 1).padStart(2, "0"); // 04
+        const day = String(today.getDate()).padStart(2, "0"); // 24
+        const formattedDate = `${month}${day}`; // "0424"
+        link.download = `${formattedDate}-DailySentence.jpg`;
         link.href = dataUrl;
         link.click();
       })
@@ -86,6 +91,7 @@ export default function RightQuotemaker() {
         console.error("이미지 저장 중 오류 발생:", error);
       });
   };
+  
 
   const handleStart = () => {
     setBookConfirmed(true);
@@ -95,48 +101,47 @@ export default function RightQuotemaker() {
   };
 
   return (
-    <div
-      id="quote-container"
-      className="w-[500px] h-[700px] bg-gradient-to-b ... shadow-2xl"
-    >
-      <div className="w-[500px] h-[800px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl">
+      <div id="quote-container" className="w-[500px] h-[700px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl">
         {chapter === 1 ? (
           <div
-            className={`flex flex-col items-center justify-between h-full transition-opacity duration-1000 ${
-              fadeOut ? "opacity-0" : fadeIn ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <div className="absolute top-10 left-1/2 transform -translate-x-1/2">
-              <h2 className="text-2xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
-                하루, 한 글
-              </h2>
-            </div>
-            <p className="text-sm text-[#888888] mt-10">Daily Sentence</p>
-
-            <div className="relative w-full mt-20">
-              <p className="text-2xl font-light text-center mt-8 whitespace-pre-line leading-relaxed text-[#333333] relative">
-                의미있는 글로{"\n"}하루를 시작하는건 어떨까요?
-                <Info
-                  className="absolute top-[-10px] right-[-10px] w-5 h-5 text-gray-500 cursor-pointer block md:hidden"
-                  onClick={() => setIsModalOpen(true)}
-                />
-              </p>
-            </div>
-
-            <div className="flex justify-center items-center mt-8 mb-4">
-              <RightBookShelf />
-            </div>
-
-            <button
-              className="bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium py-4 w-full rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl"
-              onClick={handleStart}
-            >
-              시작하기
-            </button>
-
-
-            <InfoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+          className={`flex flex-col items-center justify-between h-full transition-opacity duration-1000 ${
+            fadeOut ? "opacity-0" : fadeIn ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {/* ✅ 제목 묶음 */}
+          <div className="flex flex-col items-center mt-4">
+            <h2 className="text-2xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
+              하루, 한 글
+            </h2>
+            <p className="text-sm text-[#888888] mt-1">Daily Sentence</p>
+            <Info
+                className="absolute top-[30px] right-[30px] w-5 h-5 text-gray-500 cursor-pointer block md:hidden"
+                onClick={() => setIsModalOpen(true)}
+              />
           </div>
+        
+          {/* ✅ 문장 - 간격 줄이기 위해 mt-6 정도로 설정 */}
+          <div className="relative w-full mt-6">
+            <p className="text-xl font-light text-center whitespace-pre-line leading-snug text-[#333333] relative">
+              의미있는 글로{"\n"}하루를 시작하는건 어떨까요?
+            </p>
+          </div>
+        
+          <div className="flex justify-center items-center mt-6 mb-4">
+            <RightBookShelf />
+          </div>
+        
+          <button
+            className="bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium py-4 w-full rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl"
+            onClick={handleStart}
+          >
+            시작하기
+          </button>
+        
+          <InfoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        </div>
+      
+        
         ) : chapter === 2 ? (
           <div
             className={`flex flex-col items-center justify-center flex-grow transition-opacity duration-1000 ${
@@ -168,7 +173,7 @@ export default function RightQuotemaker() {
                   onChange={(e) => setName(e.target.value)}
                 />
                 <button
-                  className={`absolute bottom-8 bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium py-3 rounded-xl w-[300px] transition-all duration-300 shadow-lg hover:shadow-xl ${
+                  className={`absolute bottom-8 bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium py-3 rounded-xl w-[300px] h-[60px] transition-all duration-300 shadow-lg hover:shadow-xl ${
                     name ? "hover:opacity-90" : "opacity-50 cursor-not-allowed"
                   }`}
                   onClick={handleNext}
@@ -205,7 +210,8 @@ export default function RightQuotemaker() {
               </div>
             </div>
         
-            <div className="absolute bottom-13"> {/* 위치 조절 */}
+            {/* 
+            <div className="absolute bottom-13"> 
               <div className="max-w-[350px] w-full h-auto bg-transparent rounded-[20px] flex flex-col items-center justify-center p-6">
                 <p className="text-[#333333] text-xl mb-2 font-light">헤르만 헤세의 대표작</p>
                 <div className="flex flex-row items-center space-x-6 overflow-x-auto">
@@ -218,6 +224,7 @@ export default function RightQuotemaker() {
                 </div>
               </div>
             </div>
+            */}
         
             {/* ✅ 새로운 버튼 영역 추가 */}
             <div className="absolute bottom-0 flex space-x-4">
@@ -266,6 +273,5 @@ export default function RightQuotemaker() {
           </div>
         )}
       </div>
-    </div>
   );
 }

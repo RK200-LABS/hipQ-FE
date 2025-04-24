@@ -120,7 +120,6 @@ export default function RightBookShelf() {
                   <div className="h-full flex flex-col justify-between p-1 pointer-events-none">
                     <div className="w-full h-[1px] bg-white/20"></div>
                     <div className="w-full h-[1px] bg-white/20"></div>
-                    <div className="w-full h-[1px] bg-white/20"></div>
                   </div>
                 </div>
               </TooltipTrigger>
@@ -175,7 +174,6 @@ export default function RightBookShelf() {
 
 
                 <div className="h-full flex flex-col justify-between p-1 pointer-events-none">
-                  <div className="w-full h-[1px] bg-white/20"></div>
                   <div className="w-full h-[1px] bg-white/20"></div>
                   <div className="w-full h-[1px] bg-white/20"></div>
                 </div>

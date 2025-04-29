@@ -52,10 +52,19 @@ export default function RightBook3({ animate, isComplete }) {
         >
           {/* animate가 false이고, isComplete도 false일 때만 텍스트 표시 */}
           {!animate && !isComplete && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <h1 className="text-white text-xl font-bold">Daily Sentence</h1>
-              <small className="absolute right-1 bottom-1 text-white text-xs">hipster__egg</small>
-            </div>
+                <div className="absolute w-full h-full top-0 left-0">
+                  <div
+                    className="relative w-full h-full bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] rounded-r-[0.5em]"
+                    style={{ transformStyle: 'preserve-3d', transformOrigin: 'left center' }}
+                  >
+                    <h1 className="relative top-3 left-0 inset-0 flex items-center justify-center text-white text-xl font-bold">
+                      하루, 한 글
+                    </h1>
+                    <small className="absolute bottom-1 right-1 text-white text-xs">
+                      hipster__egg
+                    </small>
+                  </div>
+                </div>
           )}
         </div>
       </div>

@@ -51,7 +51,7 @@ export default function RightQuotemaker() {
   const handleShare = () => {
     if (navigator.clipboard) {
       navigator.clipboard
-        .writeText("http://localhost:3000/quotes")
+        .writeText("https://www.hipsteregg.com/")
         .then(() => {
           setShowAlert(true);
           setIsVisible(true);
@@ -148,11 +148,11 @@ export default function RightQuotemaker() {
               fadeIn ? "opacity-100" : "opacity-0"
             } relative w-full`}
           >
-            <div className="absolute top-4 left-8 flex items-center">
-              <div className="w-[40px] h-[60px] bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] rounded-tr-sm rounded-br-sm flex items-center justify-center text-white font-bold">
+            <div className="absolute top-4 left-2 flex items-center">
+              <div className="w-[30px] h-[45px] bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] rounded-tr-sm rounded-br-sm flex items-center justify-center text-white font-bold">
                 DS
               </div>
-              <h2 className="text-2xl font-bold ml-3 tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
+              <h2 className="text-xl font-bold ml-3 tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
                 Daily Sentence
               </h2>
             </div>
@@ -173,8 +173,8 @@ export default function RightQuotemaker() {
                   onChange={(e) => setName(e.target.value)}
                 />
                 <button
-                  className={`absolute bottom-8 bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium py-3 rounded-xl w-[300px] h-[60px] transition-all duration-300 shadow-lg hover:shadow-xl ${
-                    name ? "hover:opacity-90" : "opacity-50 cursor-not-allowed"
+                  className={`absolute bottom-8 w-[300px] h-[60px] text-white bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] hover:opacity-90 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center me-2 dark:bg-[#FF4F59] dark:hover:bg-[#FF4F59] dark:focus:ring-red-800 inline-flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl ${
+                    name ? "" : "opacity-50 cursor-not-allowed"
                   }`}
                   onClick={handleNext}
                   disabled={!name}
@@ -227,20 +227,21 @@ export default function RightQuotemaker() {
             */}
         
             {/* ✅ 새로운 버튼 영역 추가 */}
-            <div className="absolute bottom-0 flex space-x-4">
+            <div className="absolute bottom-0 flex w-full px-4 space-x-4">
               <button
                 onClick={resetToStart}
-                className="w-[215px] h-[60px] bg-white border border-[#e0e0e0] text-[#333333] text-lg font-medium rounded-[15px] shadow-md hover:bg-[#f9f9f9] transition-all duration-300"
+                className="flex-1 h-[60px] bg-white border border-[#e0e0e0] text-[#333333] text-lg font-medium rounded-[15px] shadow-md hover:bg-[#f9f9f9] transition-all duration-300"
               >
                 홈으로
               </button>
               <button
                 onClick={handleDownload}
-                className="w-[215px] h-[60px] bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium rounded-[15px] shadow-md hover:opacity-90 transition-all duration-300"
+                className="flex-1 h-[60px] bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium rounded-[15px] shadow-md hover:opacity-90 transition-all duration-300"
               >
                 저장하기
               </button>
             </div>
+
 
         
             {/* ✅ 메뉴 버튼 단독 - Share2만 남김 */}

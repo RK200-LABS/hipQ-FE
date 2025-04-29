@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger, SheetHeader } from "@/components/ui/sheet"; // shadcn sheet
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet"; // ✅ SheetTitle 추가
 import Link from "next/link";
 import Image from "next/image";
 
@@ -10,7 +10,7 @@ export default function Header() {
   const router = useRouter();
 
   return (
-    <header className="w-full h-[80px] fixed top-0 left-0 right-0 z-50 px-6 flex items-center justify-between 
+    <header className="w-full h-[60px] fixed top-0 left-0 right-0 z-50 px-6 flex items-center justify-between 
                   bg-transparent text-black md:bg-black md:text-white">
       {/* 로고 */}
       <div
@@ -29,7 +29,7 @@ export default function Header() {
         <Link href="/curation" className="hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
           큐레이션
         </Link>
-        <Link href="/quotes" className="hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
+        <Link href="/dailySentence" className="hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
           하루, 한 글
         </Link>
       </nav>
@@ -44,37 +44,37 @@ export default function Header() {
 
       {/* 모바일 메뉴 버튼 + Sheet */}
       <div className="md:hidden">
-      <Sheet>
-        <SheetTrigger>
-          <Menu size={30} />
-        </SheetTrigger>
-        <SheetContent side="right" className="bg-white text-black w-[80%] max-w-sm">
-          <SheetHeader>
-            <h2 className="text-xl font-bold">제목</h2>
-          </SheetHeader>
-          <div className="mt-6 space-y-6 text-xl font-bold text-center">
-            <div
-              className="cursor-pointer hover:text-[#FF4F59]"
-              onClick={() => router.push("/curation")}
-            >
-              큐레이션
+        <Sheet>
+          <SheetTrigger>
+            <Menu size={30} />
+          </SheetTrigger>
+          <SheetContent side="right" className="bg-white text-black w-[80%] max-w-sm">
+            <SheetHeader>
+              {/* ✅ SheetTitle을 추가 (h2로 대체하지 않고) */}
+              <SheetTitle className="text-xl font-bold">메뉴</SheetTitle>
+            </SheetHeader>
+            <div className="mt-6 space-y-6 text-xl font-bold text-center">
+              <div
+                className="cursor-pointer hover:text-[#FF4F59]"
+                onClick={() => router.push("/curation")}
+              >
+                큐레이션
+              </div>
+              <div
+                className="cursor-pointer hover:text-[#FF4F59]"
+                onClick={() => router.push("/dailySentence")}
+              >
+                하루, 한 글
+              </div>
+              <div
+                className="cursor-pointer hover:text-[#FF4F59]"
+                onClick={() => router.push("/start")}
+              >
+                시작하기
+              </div>
             </div>
-            <div
-              className="cursor-pointer hover:text-[#FF4F59]"
-              onClick={() => router.push("/quotes")}
-            >
-              하루, 한 글
-            </div>
-            <div
-              className="cursor-pointer hover:text-[#FF4F59]"
-              onClick={() => router.push("/start")}
-            >
-              시작하기
-            </div>
-          </div>
-        </SheetContent>
-      </Sheet>
-
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );

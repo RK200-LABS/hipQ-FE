@@ -17,8 +17,8 @@ export default function RightBook2() {
           className="relative w-full h-full bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] rounded-r-[0.5em]"
           style={{ transformStyle: 'preserve-3d', transformOrigin: 'left center' }}
         >
-          <h1 className="relative top-6 inset-0 flex items-center justify-center text-white text-xl font-bold">
-            Daily Sentence
+          <h1 className="relative top-3 left-0 inset-0 flex items-center justify-center text-white text-xl font-bold">
+            하루, 한 글
           </h1>
           <small className="absolute bottom-1 right-1 text-white text-xs">
             hipster__egg

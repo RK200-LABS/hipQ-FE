@@ -10,7 +10,7 @@ export default function Header() {
   const router = useRouter();
 
   return (
-    <header className="w-full h-[80px] fixed top-0 left-0 right-0 z-50 px-6 flex items-center justify-between 
+    <header className="w-full h-[60px] fixed top-0 left-0 right-0 z-50 px-6 flex items-center justify-between 
                   bg-transparent text-black md:bg-black md:text-white">
       {/* 로고 */}
       <div
@@ -29,7 +29,7 @@ export default function Header() {
         <Link href="/curation" className="hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
           큐레이션
         </Link>
-        <Link href="/quotes" className="hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
+        <Link href="/dailySentence" className="hover:text-[#FF4F59] transition-all duration-300 ease-in-out">
           하루, 한 글
         </Link>
       </nav>
@@ -62,7 +62,7 @@ export default function Header() {
               </div>
               <div
                 className="cursor-pointer hover:text-[#FF4F59]"
-                onClick={() => router.push("/quotes")}
+                onClick={() => router.push("/dailySentence")}
               >
                 하루, 한 글
               </div>

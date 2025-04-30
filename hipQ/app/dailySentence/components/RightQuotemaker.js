@@ -101,7 +101,11 @@ export default function RightQuotemaker() {
   };
 
   return (
-      <div id="quote-container" className="w-[500px] h-[700px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl">
+    <div
+    id="quote-container"
+    className="w-full max-w-[500px] aspect-[5/7] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl"
+  >
+  
         {chapter === 1 ? (
           <div
           className={`flex flex-col items-center justify-between h-full transition-opacity duration-1000 ${

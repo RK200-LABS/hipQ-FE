@@ -103,7 +103,7 @@ export default function RightQuotemaker() {
   return (
     <div
     id="quote-container"
-    className="w-full max-w-[500px] aspect-[5/7] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl"
+    className="w-full max-w-[400px] h-[700px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl"
   >
   
         {chapter === 1 ? (
@@ -166,7 +166,7 @@ export default function RightQuotemaker() {
                 <div className="flex flex-col items-center mb-6">
                   <RightBook2 animate={false} confirmed={true} />
                 </div>
-                <p className="text-2xl font-light text-center mt-6 whitespace-pre-line leading-relaxed text-[#333333]">
+                <p className="text-xl font-light text-center mt-6 whitespace-pre-line leading-relaxed text-[#333333]">
                   안녕하세요!{"\n"}당신을 어떻게 불러드릴까요?
                 </p>
                 <input

@@ -46,14 +46,7 @@ export default function LeftIphone() {
                     {/* 왼쪽 상단 로고 영역 */}
                     <div className="absolute top-4 left-4 flex items-center space-x-2">
                         {/* 책 모양 + DS */}
-                        <div className="w-[32px] h-[48px] bg-[#FF4F59] rounded-tr-md rounded-br-sm flex items-center justify-center">
-                        <span className="text-white text-[10px] font-bold">DS</span>
-                        </div>
 
-                        {/* Daily Sentence 텍스트 */}
-                        <h1 className="text-black text-xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
-                        Daily Sentence
-                        </h1>
                     </div>
 
                     {/* 중앙에 배치된 큰 책 모양 요소 */}
@@ -62,7 +55,7 @@ export default function LeftIphone() {
 
                         {/* 상단 중앙 텍스트 */}
                         <h1 className="text-white mt-5 text-xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
-                            Daily Sentence
+                            하루, 한 글
                         </h1>
 
 
@@ -76,7 +69,7 @@ export default function LeftIphone() {
 
 
                     {/* 안내 문구 */}
-                    <p className="text-black text-lg mt-10 sm:text-xl font-medium">
+                    <p className="text-bold font-light text-lg mt-10 sm:text-xl font-medium">
                         안녕하세요! <br />
                         당신을 어떻게 불러드릴까요? <br />
                     </p>

@@ -15,9 +15,13 @@ export default function Quotes() {
         </div>
 
         {/* RightContent - 항상 표시됨 */}
-        <div className="w-full lg:w-1/2 flex justify-center items-center">
+        <div
+          className="w-full lg:w-1/2 flex justify-center items-center"
+          style={{ height: "calc(100vh - 60px)" }} // 60px는 SubHeader 높이
+        >
           <RightContent />
         </div>
+
         
       </div>
     </div>

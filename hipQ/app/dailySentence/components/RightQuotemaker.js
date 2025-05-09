@@ -51,7 +51,7 @@ export default function RightQuotemaker() {
   const handleShare = () => {
     if (navigator.clipboard) {
       navigator.clipboard
-        .writeText("https://www.hipsteregg.com/")
+        .writeText("https://www.hipsteregg.com/dailySentence")
         .then(() => {
           setShowAlert(true);
           setIsVisible(true);
@@ -101,10 +101,21 @@ export default function RightQuotemaker() {
   };
 
   return (
+<<<<<<< HEAD
     <div
     id="quote-container"
     className="w-full max-w-[400px] h-[600px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl"
   >
+=======
+        <div
+          id="quote-container"
+          className="w-full max-w-[400px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl
+                    max-h-[600px] max-[640px]:max-h-[550px]"
+          style={{ height: "calc(var(--vh, 1vh) * 100 - 60px)" }}
+        >
+  
+
+>>>>>>> b8eeba57b49cb0722714464a439b89a34a324dd2
   
         {chapter === 1 ? (
           <div
@@ -112,7 +123,6 @@ export default function RightQuotemaker() {
             fadeOut ? "opacity-0" : fadeIn ? "opacity-100" : "opacity-0"
           }`}
         >
-          {/* ✅ 제목 묶음 */}
           <div className="flex flex-col items-center mt-4">
             <h2 className="text-2xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
               하루, 한 글
@@ -124,8 +134,7 @@ export default function RightQuotemaker() {
               />
           </div>
         
-          {/* ✅ 문장 - 간격 줄이기 위해 mt-6 정도로 설정 */}
-          <div className="relative w-full mt-6">
+          <div className="relative w-full mt-4">
             <p className="text-xl font-light text-center whitespace-pre-line leading-snug text-[#333333] relative">
               의미있는 글로{"\n"}하루를 시작하는건 어떨까요?
             </p>
@@ -148,36 +157,27 @@ export default function RightQuotemaker() {
         
         ) : chapter === 2 ? (
           <div
-            className={`flex flex-col items-center justify-center flex-grow transition-opacity duration-1000 ${
+            className={`flex flex-col items-center justify-start pt-6 flex-grow transition-opacity duration-1000 ${
               fadeIn ? "opacity-100" : "opacity-0"
             } relative w-full`}
           >
-            <div className="absolute top-4 left-2 flex items-center">
-              <div className="w-[30px] h-[45px] bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] rounded-tr-sm rounded-br-sm flex items-center justify-center text-white font-bold">
-                DS
-              </div>
-              <h2 className="text-xl font-bold ml-3 tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#333333] to-[#FF4F59]">
-                Daily Sentence
-              </h2>
-            </div>
-
             {!showLoading && (
               <>
-                <div className="flex flex-col items-center mb-6">
+                <div className="flex flex-col items-center mb-4">
                   <RightBook2 animate={false} confirmed={true} />
                 </div>
-                <p className="text-xl font-light text-center mt-6 whitespace-pre-line leading-relaxed text-[#333333]">
+                <p className="text-xl font-light text-center whitespace-pre-line leading-relaxed text-[#333333]">
                   안녕하세요!{"\n"}당신을 어떻게 불러드릴까요?
                 </p>
                 <input
                   type="text"
-                  className="mt-6 p-3 border border-[#e0e0e0] rounded-xl text-[#333333] w-[300px] bg-white focus:outline-none focus:border-[#FF4F59] transition-all duration-300"
+                  className="mt-4 p-3 border border-[#e0e0e0] rounded-xl text-[#333333] w-[300px] bg-white focus:outline-none focus:border-[#FF4F59] transition-all duration-300"
                   placeholder="이름 혹은 닉네임"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
                 <button
-                  className={`absolute bottom-8 w-[300px] h-[60px] text-white bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] hover:opacity-90 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center me-2 dark:bg-[#FF4F59] dark:hover:bg-[#FF4F59] dark:focus:ring-red-800 inline-flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl ${
+                  className={`absolute bottom-4 w-[300px] h-[60px] text-white bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] hover:opacity-90 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-xl text-lg px-5 py-2.5 text-center me-2 dark:bg-[#FF4F59] dark:hover:bg-[#FF4F59] dark:focus:ring-red-800 inline-flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl ${
                     name ? "" : "opacity-50 cursor-not-allowed"
                   }`}
                   onClick={handleNext}
@@ -187,9 +187,8 @@ export default function RightQuotemaker() {
                 </button>
               </>
             )}
-
-          {showLoading && <RightLoading name={name} onComplete={() => setChapter(3)} />}
-
+        
+            {showLoading && <RightLoading name={name} onComplete={() => setChapter(3)} />}
           </div>
         ) : chapter === 3 ? (
           <div
@@ -201,16 +200,13 @@ export default function RightQuotemaker() {
               Daily Sentence
             </h2>
         
-            <p className="text-2xl font-light text-center mt-4 whitespace-pre-line leading-relaxed text-[#333333]">
-            <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B]">{name}</span>님을 위한 오늘의 글
-            </p>
         
             <div className="relative flex-grow w-full mt-4">
               <div
                 className="absolute inset-x-0 flex items-center justify-center"
                 style={{ top: "10px" }}
               >
-                <RightBook4 />
+                <RightBook4 name={name} />
               </div>
             </div>
         
@@ -247,8 +243,6 @@ export default function RightQuotemaker() {
             </div>
 
 
-        
-            {/* ✅ 메뉴 버튼 단독 - Share2만 남김 */}
             <div className="absolute top-1 right-1 z-50">
               <button
                 onClick={handleShare}
@@ -261,8 +255,6 @@ export default function RightQuotemaker() {
           </div>
         ) : null}
         
-
-        {/* ✅ 알림 메시지 (fade-in/out 적용) */}
         {showAlert && (
           <div
             className={`fixed top-24 left-1/2 transform -translate-x-1/2 z-50 transition-opacity duration-500 ease-in-out ${

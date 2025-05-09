@@ -101,12 +101,10 @@ export default function RightQuotemaker() {
   };
 
   return (
-      <div
-        id="quote-container"
-        className="w-full max-w-[400px] max-h-[600px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl"
-        style={{ height: "calc(var(--vh, 1vh) * 100 - 60px)" }} // 100vh에서 header 높이 제외
-      >
-
+    <div
+    id="quote-container"
+    className="w-full max-w-[400px] h-[600px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl"
+  >
   
         {chapter === 1 ? (
           <div

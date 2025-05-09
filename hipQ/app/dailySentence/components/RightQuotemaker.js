@@ -101,12 +101,6 @@ export default function RightQuotemaker() {
   };
 
   return (
-<<<<<<< HEAD
-    <div
-    id="quote-container"
-    className="w-full max-w-[400px] h-[600px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl"
-  >
-=======
         <div
           id="quote-container"
           className="w-full max-w-[400px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl
@@ -115,7 +109,6 @@ export default function RightQuotemaker() {
         >
   
 
->>>>>>> b8eeba57b49cb0722714464a439b89a34a324dd2
   
         {chapter === 1 ? (
           <div

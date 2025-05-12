@@ -103,11 +103,12 @@ export default function RightQuotemaker() {
   return (
         <div
           id="quote-container"
-          className="w-full max-w-[400px] bg-gradient-to-b from-white to-[#f5f5f5] text-[#333333] p-8 border border-[#e0e0e0] rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative shadow-2xl
-                    max-h-[600px] max-[640px]:max-h-[550px]"
+          className="w-full max-w-[400px] text-[#333333] p-8 rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative
+            bg-gradient-to-b from-white to-[#f5f5f5] shadow-2xl border border-[#e0e0e0]
+            max-lg:bg-white max-lg:shadow-none max-lg:border-none
+            max-h-[600px] max-[640px]:max-h-[550px]"
           style={{ height: "calc(var(--vh, 1vh) * 100 - 60px)" }}
         >
-  
 
   
         {chapter === 1 ? (
@@ -122,9 +123,10 @@ export default function RightQuotemaker() {
             </h2>
             <p className="text-sm text-[#888888] mt-1">Daily Sentence</p>
             <Info
-                className="absolute top-[30px] right-[30px] w-5 h-5 text-gray-500 cursor-pointer block md:hidden"
-                onClick={() => setIsModalOpen(true)}
-              />
+              className="absolute top-[30px] right-[30px] w-5 h-5 text-gray-500 cursor-pointer block lg:hidden"
+              onClick={() => setIsModalOpen(true)}
+            />
+
           </div>
         
           <div className="relative w-full mt-4">

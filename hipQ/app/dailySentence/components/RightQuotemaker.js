@@ -103,12 +103,16 @@ export default function RightQuotemaker() {
   return (
         <div
           id="quote-container"
-          className="w-full max-w-[400px] text-[#333333] p-8 rounded-[20px] flex flex-col items-center justify-between transition-all duration-500 relative
+          className="w-full max-w-[400px] p-8 rounded-[20px] text-[#333333]
+            flex flex-col items-center justify-between relative
+            transition-all duration-500
             bg-gradient-to-b from-white to-[#f5f5f5] shadow-2xl border border-[#e0e0e0]
-            max-lg:bg-white max-lg:shadow-none max-lg:border-none
-            max-h-[600px] max-[640px]:max-h-[550px]"
+            max-h-[600px] max-[640px]:max-h-[550px]
+            max-[1023px]:bg-white max-[1023px]:bg-none max-[1023px]:shadow-none max-[1023px]:border-none"
           style={{ height: "calc(var(--vh, 1vh) * 100 - 60px)" }}
         >
+
+
 
   
         {chapter === 1 ? (

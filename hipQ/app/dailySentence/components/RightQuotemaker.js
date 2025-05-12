@@ -193,16 +193,13 @@ export default function RightQuotemaker() {
               Daily Sentence
             </h2>
         
-            <p className="text-2xl font-light text-center mt-4 whitespace-pre-line leading-relaxed text-[#333333]">
-            <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B]">{name}</span>님을 위한 오늘의 글
-            </p>
         
             <div className="relative flex-grow w-full mt-4">
               <div
                 className="absolute inset-x-0 flex items-center justify-center"
                 style={{ top: "10px" }}
               >
-                <RightBook4 />
+                <RightBook4 name={name} />
               </div>
             </div>
         
@@ -239,8 +236,6 @@ export default function RightQuotemaker() {
             </div>
 
 
-        
-            {/* ✅ 메뉴 버튼 단독 - Share2만 남김 */}
             <div className="absolute top-1 right-1 z-50">
               <button
                 onClick={handleShare}
@@ -253,8 +248,6 @@ export default function RightQuotemaker() {
           </div>
         ) : null}
         
-
-        {/* ✅ 알림 메시지 (fade-in/out 적용) */}
         {showAlert && (
           <div
             className={`fixed top-24 left-1/2 transform -translate-x-1/2 z-50 transition-opacity duration-500 ease-in-out ${

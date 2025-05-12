@@ -225,21 +225,23 @@ export default function RightQuotemaker() {
             </div>
             */}
         
-            {/* ✅ 새로운 버튼 영역 추가 */}
-            <div className="absolute bottom-0 flex w-full px-4 space-x-4">
+            
+            <div className="absolute bottom-0 w-full px-4 flex justify-center gap-4">
               <button
                 onClick={resetToStart}
-                className="flex-1 h-[60px] bg-white border border-[#e0e0e0] text-[#333333] text-lg font-medium rounded-[15px] shadow-md hover:bg-[#f9f9f9] transition-all duration-300"
+                className="h-[60px] min-w-[140px] w-full max-w-[160px] bg-white border border-[#e0e0e0] text-[#333333] text-lg font-medium rounded-[15px] shadow-md hover:bg-[#f9f9f9] transition-all duration-300"
               >
                 홈으로
               </button>
               <button
                 onClick={handleDownload}
-                className="flex-1 h-[60px] bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium rounded-[15px] shadow-md hover:opacity-90 transition-all duration-300"
+                className="h-[60px] min-w-[140px] w-full max-w-[160px] bg-gradient-to-r from-[#FF4F59] to-[#FF6B6B] text-white text-lg font-medium rounded-[15px] shadow-md hover:opacity-90 transition-all duration-300"
               >
                 저장하기
               </button>
             </div>
+
+
 
 
             <div className="absolute top-1 right-1 z-50">

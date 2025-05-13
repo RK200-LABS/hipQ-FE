@@ -4,54 +4,51 @@ import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
 
-// Component to render a single book card
 export function BookCard({ book, toggleTag }) {
   return (
-    <Card className="h-full overflow-hidden group relative">
-      {/* Book Cover Image */}
+    <Card className="h-full overflow-hidden group relative rounded-lg">
       <div className="relative h-[400px] w-full">
         <Image
           src={book.image || "/placeholder.svg"}
           alt={book.title}
           fill
-          className="object-cover"
+          className="object-cover rounded-t-lg"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
+      </div>
 
-        {/* Overlay that appears on hover */}
-        <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
-          <div>
-            <h2 className="text-xl font-bold text-white mb-2">{book.title}</h2>
-            <p className="text-sm text-white/80">
-              by {book.author} ({book.year})
-            </p>
-            <p className="text-white/90 mt-4">{book.content}</p>
-          </div>
+      <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-between p-6 rounded-lg shadow-2xl">
+        <div>
+          <h2 className="text-xl font-bold text-white mb-2">{book.title}</h2>
+          <p className="text-sm text-white/80">
+            by {book.author} ({book.year})
+          </p>
+          <p className="text-white/90 mt-4">{book.content}</p>
+        </div>
 
-          <div className="flex flex-wrap gap-2">
-            {book.tags.map((tag) => (
-              <Badge
-                key={tag}
-                variant="outline"
-                className="cursor-pointer text-white border-white/50"
-                onClick={() => toggleTag(tag)}
-              >
-                #{tag}
-              </Badge>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-2">
+          {book.tags.map((tag) => (
+            <Badge
+              key={tag}
+              variant="outline"
+              className="cursor-pointer text-white border-white/50"
+              onClick={() => toggleTag(tag)}
+            >
+              #{tag}
+            </Badge>
+          ))}
         </div>
       </div>
 
-      {/* Always visible title at the bottom */}
-      <div className="p-4 bg-background">
+      <div className="absolute bottom-0 left-0 w-full p-4 bg-background z-20 rounded-b-lg">
         <h3 className="font-medium">{book.title}</h3>
       </div>
     </Card>
+
+
   )
 }
 
-// Component to render the grid of book cards
 export function BookGrid({ books, toggleTag }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
